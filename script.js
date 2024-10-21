@@ -32,8 +32,8 @@ function parseFile(context){
         let [[w, h], cells, color] = split
         if(w && h && cells && color){
             let useColors = new Set()
-            color = color.map(v => `:1pix_${v.toString(16).padStart(6, '0')}:`).map(v => v===":1pix_000000:"?":1pix_black:":v===":1pix_ffffff:"?":1pix_white:":v)
-            color[color.length - 1] = ":1pix_clear:"
+            color = color.map(v => `:1pix_${v.toString(16).padStart(6, '0')}:`).map(v => v===":1pix_000000:"?":1pb:":v===":1pix_ffffff:"?":1pw:":v)
+            color[color.length - 1] = ":1pc:"
             cells = cells.map((v, i)=>{
                 const match = color[v].match(/^:1pix_([0-9a-f]{6}):$/)
                 if(match) useColors.add(match[1])
