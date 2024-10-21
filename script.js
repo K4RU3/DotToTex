@@ -40,7 +40,7 @@ function parseFile(context){
                 return color[v]
             })
             console.log(color)
-            return [Array.from({length: h}, (v, i)=>cells.slice(i*w, (i + 1)*w).join("")).join("\n"), useColors]
+            return [Array.from({length: h}, (v, i)=>cells.slice(i*w, (i + 1)*w).join("").replace(/(:1pc:)*$/, "")).join("\n").replace(/^\n* | \n*$/g, ""), useColors]
         }else{
             throw new Error("Invalid file")
         }
